@@ -1,5 +1,4 @@
 use std::collections::HashMap;
-use std::iter::Map;
 
 fn main() {
     let input = include_str!("../../input/day01.txt");
@@ -13,10 +12,7 @@ fn part1(input: &str) {
     let mut right: Vec<i32> = vec![];
 
     for line in input.lines() {
-        let split: Vec<&str> = line
-            .split(" ")
-            .filter(|s| !s.is_empty())
-            .collect();
+        let split: Vec<&str> = line.split(" ").filter(|s| !s.is_empty()).collect();
 
         left.push(split[0].parse().unwrap());
         right.push(split[1].parse().unwrap());
@@ -39,10 +35,7 @@ fn part2(input: &str) {
     let mut right: Vec<i32> = vec![];
 
     for line in input.lines() {
-        let split: Vec<&str> = line
-            .split(" ")
-            .filter(|s| !s.is_empty())
-            .collect();
+        let split: Vec<&str> = line.split(" ").filter(|s| !s.is_empty()).collect();
 
         left.push(split[0].parse().unwrap());
         right.push(split[1].parse().unwrap());
@@ -54,9 +47,7 @@ fn part2(input: &str) {
         if let Some(occurrence) = occurrence_map.get(&l) {
             total_similarity += l * occurrence;
         } else {
-            let occurrence = right.iter()
-                .filter(|&&r| r == l)
-                .count();
+            let occurrence = right.iter().filter(|&&r| r == l).count();
             let occurrence = occurrence as i32;
             occurrence_map.insert(l, occurrence);
 
@@ -66,4 +57,3 @@ fn part2(input: &str) {
 
     println!("part 2: {}", total_similarity);
 }
-

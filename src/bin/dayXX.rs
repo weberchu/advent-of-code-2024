@@ -12,11 +12,10 @@ fn main() {
     println!("part 2: {:?} , took: {:?}", p2_ans, start.elapsed());
 }
 
-fn part1(input: &str) -> i32 {
-    1
+fn part1(input: &str) -> usize {
+    input.len()
 }
 
-fn part2(input: &str) -> i32 {
-    2
+fn part2(input: &str) -> usize {
+    input.len()
 }
-

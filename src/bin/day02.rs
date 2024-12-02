@@ -40,7 +40,7 @@ fn part2(input: &str) -> i32 {
     safe_count
 }
 
-fn is_safe(report: &Vec<i32>, can_fix_error: bool) -> bool {
+fn is_safe(report: &[i32], can_fix_error: bool) -> bool {
     let mut is_ascending: Option<bool> = None;
 
     for i in 1..report.len() {
@@ -57,8 +57,8 @@ fn is_safe(report: &Vec<i32>, can_fix_error: bool) -> bool {
             if is_ascending != current_ascending {
                 return can_fix_error
                     && (is_safe_with_level_removed(report, 0)
-                    || is_safe_with_level_removed(report, i)
-                    || is_safe_with_level_removed(report, i - 1));
+                        || is_safe_with_level_removed(report, i)
+                        || is_safe_with_level_removed(report, i - 1));
             }
         } else {
             is_ascending = Some(current_ascending);
@@ -68,8 +68,8 @@ fn is_safe(report: &Vec<i32>, can_fix_error: bool) -> bool {
     true
 }
 
-fn is_safe_with_level_removed(report: &Vec<i32>, level_to_remove: usize) -> bool {
-    let mut modified_report = report.clone();
+fn is_safe_with_level_removed(report: &[i32], level_to_remove: usize) -> bool {
+    let mut modified_report = report.to_owned();
     modified_report.remove(level_to_remove);
     is_safe(&modified_report, false)
 }
