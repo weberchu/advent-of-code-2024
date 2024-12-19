@@ -5,11 +5,11 @@ fn main() {
 
     let start = Instant::now();
     let p1_ans = part1(input);
-    println!("part 1: {:?} , took: {:?}", p1_ans, start.elapsed());
+    println!("part 1: {} , took: {:?}", p1_ans, start.elapsed());
 
     let start = Instant::now();
     let p2_ans = part2(input);
-    println!("part 2: {:?} , took: {:?}", p2_ans, start.elapsed());
+    println!("part 2: {} , took: {:?}", p2_ans, start.elapsed());
 }
 
 fn part1(input: &str) -> usize {
